@@ -1,13 +1,13 @@
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import AppTabs from './src/navigation/AppTabs';
+import AuthStack from './src/navigation/AuthStack';
 
 export default function App() {
   return (
     <NavigationContainer>
       <StatusBar style="dark" />
-      <AppTabs />
+      <AuthStack />
     </NavigationContainer>
   );
 }
