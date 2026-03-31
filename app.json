@@ -4,7 +4,7 @@
     "slug": "App-Punto-de-Oro",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/iconAppPuntoDeOro.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {

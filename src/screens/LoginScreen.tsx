@@ -1,4 +1,4 @@
-import { SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View, Image } from 'react-native';
 import { colors } from '../theme/colors';
 
 type Props = {
@@ -10,7 +10,7 @@ export default function LoginScreen({ navigation }: Props) {
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
         <View style={styles.logoBox}>
-          <Text style={styles.logoText}>✦</Text>
+          <Image source={require('../../assets/iconAppPuntoDeOro.png')} style={styles.logo} />
         </View>
 
         <Text style={styles.title}>Iniciar sesión</Text>
@@ -70,6 +70,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 24,
+  },
+  logo: {
+    width: 50,
+    height: 50,
+    resizeMode: 'contain',
   },
   logoText: {
     color: colors.accent,
