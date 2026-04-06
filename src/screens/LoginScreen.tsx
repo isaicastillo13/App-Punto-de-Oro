@@ -7,18 +7,21 @@ import {
   Image,
 } from "react-native";
 import { useState } from "react";
-
 import { SafeAreaView } from "react-native-safe-area-context";
+
 import { useAuth } from "../hooks/useAuth";
 import { validateLoginForm } from "../utils/validators";
-
 import { colors } from "../theme/colors";
 
 type Props = {
   navigation: any;
+  setIsAuthenticated: (value: boolean) => void;
 };
 
-export default function LoginScreen({ navigation }: Props) {
+export default function LoginScreen({
+  navigation,
+  setIsAuthenticated,
+}: Props) {
   const { login } = useAuth();
 
   const [email, setEmail] = useState("");
@@ -44,8 +47,7 @@ export default function LoginScreen({ navigation }: Props) {
 
       console.log("Login exitoso:", data);
 
-      // Cambia "Inicio" por el nombre real de tu ruta si es diferente
-      navigation.navigate("HomeScreen");
+      setIsAuthenticated(true);
     } catch (error: any) {
       setError(error.message || "Ocurrió un error al iniciar sesión");
     }
@@ -68,8 +70,10 @@ export default function LoginScreen({ navigation }: Props) {
           <TextInput
             placeholder="Correo electrónico"
             placeholderTextColor={colors.textSecondary}
-            style={[styles.input,       
-              (formErrors.email || error) ? styles.inputError : null]}
+            style={[
+              styles.input,
+              formErrors.email || error ? styles.inputError : null,
+            ]}
             keyboardType="email-address"
             autoCapitalize="none"
             value={email}
@@ -89,7 +93,7 @@ export default function LoginScreen({ navigation }: Props) {
             placeholderTextColor={colors.textSecondary}
             style={[
               styles.input,
-              (formErrors.password || error) ? styles.inputError : null
+              formErrors.password || error ? styles.inputError : null,
             ]}
             secureTextEntry
             value={password}
