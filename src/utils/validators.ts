@@ -1,13 +1,3 @@
-// export const validateLogin = (email: string, password: string) => {
-// if(!email) return "El correo electrónico es requerido";
-// if(!password) return "La contraseña es requerida";
-// if(!/\S+@\S+\.\S+/.test(email)) return "El correo electrónico no es válido";
-// if(password.length < 6) return "La contraseña debe tener al menos 6 caracteres";
-
-// return null;
-
-// };
-
 export const validateEmail = (email: string) => {
   if (!email) return "El correo electrónico es requerido";
   if (!/\S+@\S+\.\S+/.test(email)) return "El correo electrónico no es válido";

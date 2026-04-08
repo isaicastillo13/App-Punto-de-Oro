@@ -33,8 +33,8 @@ export default function LoginScreen({
   const [error, setError] = useState("");
 
   const handleLogin = async () => {
-    setError("");
 
+    setError("");
     const errors = validateLoginForm(email, password);
 
     if (errors.email || errors.password) {
@@ -44,10 +44,9 @@ export default function LoginScreen({
 
     try {
       const data = await login(email, password);
-
       console.log("Login exitoso:", data);
-
       setIsAuthenticated(true);
+
     } catch (error: any) {
       setError(error.message || "Ocurrió un error al iniciar sesión");
     }
