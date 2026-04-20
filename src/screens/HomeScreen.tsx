@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, Image, Pressable } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { AntDesign } from "@expo/vector-icons";
 import { colors } from "../theme/colors";
+import BenefitCard from '../components/BenefitCard';
 
 export default function HomeScreen() {
   return (
@@ -40,6 +41,11 @@ export default function HomeScreen() {
 
       <View style={styles.content}>
         <Text style={styles.sectionTitle}>Beneficios destacados</Text>
+        <View style={styles.benefitCard}>
+        <BenefitCard />
+        <BenefitCard />
+      </View>
+
       </View>
     </SafeAreaView>
   );
@@ -159,5 +165,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "700",
     color: colors.textPrimary,
+  },
+  benefitCard: {
+    display: "flex",
+    flexDirection: "row",
   },
 });
