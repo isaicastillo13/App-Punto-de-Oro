@@ -1,19 +1,47 @@
-import { View, Text, StyleSheet, Image } from 'react-native';
-import { colors } from '../theme/colors';
+import { View, Text, StyleSheet, Image, Pressable } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { AntDesign } from "@expo/vector-icons";
+import { colors } from "../theme/colors";
 
 export default function HomeScreen() {
   return (
-    <View style={styles.container}>
-      <View style={styles.containerHeader}>
-        <View>
-      <Text style={styles.subtitle}>Saludo</Text>
-      <Text style={styles.title}>Hola, Usuario</Text>
+    <SafeAreaView style={styles.container} edges={["top"]}>
+      <View style={styles.header}>
+        <View style={styles.headerTop}>
+          <View style={styles.userInfo}>
+            <Text style={styles.greeting}>Saludo</Text>
+            <Text style={styles.userName}>Hola, Usuario</Text>
+          </View>
+
+          <View style={styles.avatarWrapper}>
+            <Image
+              source={require("../../assets/iconProfile.png")}
+              style={styles.avatar}
+            />
+          </View>
         </View>
-        <View style={styles.profileContainer}>
-         <Image source={require("../../assets/iconProfile.png")} style={styles.profile} />
+
+        <View style={styles.pointsCard}>
+          <Text style={styles.cardLabel}>Tu saldo</Text>
+          <Text style={styles.balance}>1,240 pts</Text>
+          <Text style={styles.cardSubtext}>puntos disponibles</Text>
+
+          <Pressable
+            style={({ pressed }) => [
+              styles.codeButton,
+              pressed && styles.codeButtonPressed,
+            ]}
+          >
+            <AntDesign name="qrcode" size={20} color={colors.textPrimary} />
+            <Text style={styles.codeButtonText}>Ver mi código</Text>
+          </Pressable>
         </View>
       </View>
-    </View>
+
+      <View style={styles.content}>
+        <Text style={styles.sectionTitle}>Beneficios destacados</Text>
+      </View>
+    </SafeAreaView>
   );
 }
 
@@ -22,43 +50,111 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.background,
   },
-  title: {
-    fontSize: 24,
-    fontWeight: '700',
-    color: colors.text,
-  },
-  subtitle:{
-    fontSize: 20,
-    color: '#FFFFFFB3',
-    marginTop: 4,
-  },
-  profileContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 12,
-    marginTop: 20,
-    width: 50,
-    height: 50,
-    borderRadius : 100,
-    backgroundColor: '#ffffff59'
+
+  header: {
+    backgroundColor: colors.primary,
+    paddingTop: 16,
+    paddingHorizontal: 20,
+    paddingBottom: 24,
+    borderBottomLeftRadius: 24,
+    borderBottomRightRadius: 24,
   },
 
-  profile:{
+  headerTop: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+
+  userInfo: {
+    flexShrink: 1,
+  },
+
+  greeting: {
+    fontSize: 14,
+    color: "rgba(255,255,255,0.7)",
+    marginBottom: 4,
+  },
+
+  userName: {
+    fontSize: 24,
+    fontWeight: "700",
+    color: "#FFFFFF",
+  },
+
+  avatarWrapper: {
+    width: 52,
+    height: 52,
+    borderRadius: 26,
+    backgroundColor: "rgba(255,255,255,0.18)",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  avatar: {
     width: 24,
     height: 24,
+    resizeMode: "contain",
   },
 
-  containerHeader: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    justifyContent: 'space-between',
-    backgroundColor: colors.primary,
-    paddingTop: 40,
+  pointsCard: {
+    marginTop: 24,
+    backgroundColor: "rgba(255,255,255,0.14)",
+    borderRadius: 18,
+    padding: 18,
+    borderWidth: 1,
+    borderColor: "rgba(255,255,255,0.18)",
+  },
+
+  cardLabel: {
+    fontSize: 14,
+    color: "rgba(255,255,255,0.75)",
+    marginBottom: 6,
+  },
+
+  balance: {
+    fontSize: 36,
+    fontWeight: "800",
+    color: "#FFFFFF",
+    marginBottom: 4,
+  },
+
+  cardSubtext: {
+    fontSize: 15,
+    color: "rgba(255,255,255,0.7)",
+    marginBottom: 18,
+  },
+
+  codeButton: {
+    alignSelf: "flex-start",
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: colors.accent,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    borderRadius: 99,
+  },
+
+  codeButtonPressed: {
+    opacity: 0.85,
+  },
+
+  codeButtonText: {
+    marginLeft: 8,
+    fontSize: 15,
+    fontWeight: "700",
+    color: colors.textPrimary,
+  },
+
+  content: {
+    flex: 1,
     paddingHorizontal: 20,
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
-    width: '100%',
-    height: '25%',
-  }
+    paddingTop: 24,
+  },
+
+  sectionTitle: {
+    fontSize: 20,
+    fontWeight: "700",
+    color: colors.textPrimary,
+  },
 });
