@@ -32,7 +32,7 @@ export default function HomeScreen() {
               pressed && styles.codeButtonPressed,
             ]}
           >
-            <AntDesign name="qrcode" size={20} color={colors.textPrimary} />
+            <AntDesign name="qrcode" size={20} color={colors.darkaccent} />
             <Text style={styles.codeButtonText}>Ver mi código</Text>
           </Pressable>
         </View>
@@ -72,21 +72,21 @@ const styles = StyleSheet.create({
 
   greeting: {
     fontSize: 14,
-    color: "rgba(255,255,255,0.7)",
+    color: "#ffffffb3",
     marginBottom: 4,
   },
 
   userName: {
     fontSize: 24,
     fontWeight: "700",
-    color: "#FFFFFF",
+    color: colors.text,
   },
 
   avatarWrapper: {
     width: 52,
     height: 52,
     borderRadius: 26,
-    backgroundColor: "rgba(255,255,255,0.18)",
+    backgroundColor: "#ffffff2e",
     justifyContent: "center",
     alignItems: "center",
   },
@@ -99,29 +99,32 @@ const styles = StyleSheet.create({
 
   pointsCard: {
     marginTop: 24,
-    backgroundColor: "rgba(255,255,255,0.14)",
+    backgroundColor: "#ffffff2e",
     borderRadius: 18,
     padding: 18,
     borderWidth: 1,
-    borderColor: "rgba(255,255,255,0.18)",
+    borderColor: colors.border,
   },
 
   cardLabel: {
     fontSize: 14,
-    color: "rgba(255,255,255,0.75)",
+    color: "#ffffffbf",
     marginBottom: 6,
   },
 
   balance: {
     fontSize: 36,
     fontWeight: "800",
-    color: "#FFFFFF",
+    color: colors.text,
     marginBottom: 4,
+    textShadowColor: "#00000033",
+    textShadowOffset: { width: 0, height: 4 },
+    textShadowRadius: 8,
   },
 
   cardSubtext: {
     fontSize: 15,
-    color: "rgba(255,255,255,0.7)",
+    color: "#ffffffb3",
     marginBottom: 18,
   },
 
@@ -143,7 +146,7 @@ const styles = StyleSheet.create({
     marginLeft: 8,
     fontSize: 15,
     fontWeight: "700",
-    color: colors.textPrimary,
+    color: colors.darkaccent,
   },
 
   content: {
