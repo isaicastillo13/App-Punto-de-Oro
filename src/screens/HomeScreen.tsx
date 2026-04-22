@@ -86,35 +86,36 @@ export default function HomeScreen() {
             />
           </ScrollView>
 
-          <View style={styles.sectionMovements}>
+          <View style={styles.sectionHeader}>
             <Text style={styles.sectionTitle}>Movimientos recientes</Text>
-            <MovementItem
-              title="Supermercado El Rey"
-              date="Hoy · 10:32 am"
-              amount="+120"
-              type="earn"
-            />
-
-            <MovementItem
-              title="Canje: Café gratis"
-              date="Ayer · 8:15 am"
-              amount="-200"
-              type="redeem"
-            />
-            <MovementItem
-              title="Supermercado El Rey"
-              date="Hoy · 10:32 am"
-              amount="+120"
-              type="earn"
-            />
-
-            <MovementItem
-              title="Canje: Café gratis"
-              date="Ayer · 8:15 am"
-              amount="-200"
-              type="redeem"
-            />
           </View>
+
+          <MovementItem
+            title="Supermercado El Rey"
+            date="Hoy · 10:32 am"
+            amount="+120"
+            type="earn"
+          />
+
+          <MovementItem
+            title="Canje: Café gratis"
+            date="Ayer · 8:15 am"
+            amount="-200"
+            type="redeem"
+          />
+          <MovementItem
+            title="Supermercado El Rey"
+            date="Hoy · 10:32 am"
+            amount="+120"
+            type="earn"
+          />
+
+          <MovementItem
+            title="Canje: Café gratis"
+            date="Ayer · 8:15 am"
+            amount="-200"
+            type="redeem"
+          />
         </View>
       </ScrollView>
     </SafeAreaView>
