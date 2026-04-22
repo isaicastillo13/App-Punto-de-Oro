@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, Image, Pressable } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { AntDesign } from "@expo/vector-icons";
 import { colors } from "../theme/colors";
-import BenefitCard from '../components/BenefitCard';
+import BenefitCard from "../components/BenefitCard";
 
 export default function HomeScreen() {
   return (
@@ -41,11 +41,28 @@ export default function HomeScreen() {
 
       <View style={styles.content}>
         <Text style={styles.sectionTitle}>Beneficios destacados</Text>
+        {/* Scrollhorizontal con tarjetas de beneficios */}
+        
         <View style={styles.benefitCard}>
-        <BenefitCard />
-        <BenefitCard />
-      </View>
-
+          <BenefitCard
+            title="Descuento en tu próxima compra"
+            description="Obtén un 20% de descuento en tu próxima compra en nuestra tienda online. ¡Aprovecha esta oferta exclusiva para miembros!"
+            iconName="gift"
+            onPress={() => console.log("Ver más")}
+          />
+          <BenefitCard
+            title="Beneficio Destacado"
+            description="Descripción breve del beneficio ofrecido."
+            iconName="restaurant"
+            onPress={() => console.log("Ver más")}
+          />
+          <BenefitCard
+            title="Almuerzo corporativo"
+            description="Aprovecha descuentos exclusivos en restaurantes aliados."
+            iconName="fast-food"
+            onPress={() => console.log("Ver más")}
+          />
+        </View>
       </View>
     </SafeAreaView>
   );
