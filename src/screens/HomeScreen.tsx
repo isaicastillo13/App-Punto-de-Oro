@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, Pressable } from "react-native";
+import { View, Text, StyleSheet, Image, Pressable, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { AntDesign } from "@expo/vector-icons";
 import { colors } from "../theme/colors";
@@ -39,31 +39,35 @@ export default function HomeScreen() {
         </View>
       </View>
 
-      <View style={styles.content}>
-        <Text style={styles.sectionTitle}>Beneficios destacados</Text>
-        {/* Scrollhorizontal con tarjetas de beneficios */}
-        
-        <View style={styles.benefitCard}>
-          <BenefitCard
-            title="Descuento en tu próxima compra"
-            description="Obtén un 20% de descuento en tu próxima compra en nuestra tienda online. ¡Aprovecha esta oferta exclusiva para miembros!"
-            iconName="gift"
-            onPress={() => console.log("Ver más")}
-          />
-          <BenefitCard
-            title="Beneficio Destacado"
-            description="Descripción breve del beneficio ofrecido."
-            iconName="restaurant"
-            onPress={() => console.log("Ver más")}
-          />
-          <BenefitCard
-            title="Almuerzo corporativo"
-            description="Aprovecha descuentos exclusivos en restaurantes aliados."
-            iconName="fast-food"
-            onPress={() => console.log("Ver más")}
-          />
-        </View>
-      </View>
+      <ScrollView
+  horizontal
+  showsHorizontalScrollIndicator={false}
+  contentContainerStyle={styles.scrollContent}
+>
+  <View style={styles.benefitRow}>
+    <BenefitCard
+      title="Descuento en tu próxima compra"
+      description="Obtén un 20% de descuento en tu próxima compra en nuestra tienda onliner"
+      iconName="gift"
+      onPress={() => console.log("Ver más")}
+    />
+
+    <BenefitCard
+      title="Beneficio Destacado"
+      description="Descripción breve del beneficio ofrecido."
+      iconName="restaurant"
+      onPress={() => console.log("Ver más")}
+    />
+
+    <BenefitCard
+      title="Almuerzo corporativo"
+      description="Aprovecha descuentos exclusivos en restaurantes aliados."
+      iconName="fast-food"
+      onPress={() => console.log("Ver más")}
+    />
+  </View>
+</ScrollView>
+            
     </SafeAreaView>
   );
 }
@@ -172,19 +176,23 @@ const styles = StyleSheet.create({
     color: colors.darkaccent,
   },
 
-  content: {
-    flex: 1,
-    paddingHorizontal: 20,
-    paddingTop: 24,
-  },
+ 
 
   sectionTitle: {
     fontSize: 20,
     fontWeight: "700",
     color: colors.textPrimary,
   },
-  benefitCard: {
-    display: "flex",
-    flexDirection: "row",
-  },
+
+
+  scrollContent: {
+  paddingHorizontal: 20,
+  paddingTop: 24,
+  paddingBottom: 8,
+},
+
+benefitRow: {
+  flexDirection: "row",
+  alignItems: "flex-start",
+},
 });

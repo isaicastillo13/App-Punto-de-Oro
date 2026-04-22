@@ -24,15 +24,15 @@ function BenefitCardComponent({
   return (
     <View style={styles.card}>
       <View style={styles.iconWrapper}>
-        <Ionicons name={iconName} size={24} color={colors.primary} />
+        <Ionicons name={iconName} size={18} color={colors.primary} />
       </View>
 
-      <View style={styles.content}>
+      <View>
         <Text style={styles.title} numberOfLines={2}>
           {title}
         </Text>
 
-        <Text style={styles.description} numberOfLines={3}>
+        <Text style={styles.description} numberOfLines={1}>
           {description}
         </Text>
 
@@ -47,13 +47,15 @@ function BenefitCardComponent({
             disabled && styles.buttonDisabled,
           ]}
         >
-          <Text style={[styles.buttonText, disabled && styles.buttonTextDisabled]}>
+          <Text
+            style={[styles.buttonText, disabled && styles.buttonTextDisabled]}
+          >
             {buttonLabel}
           </Text>
 
           <Feather
             name="arrow-up-right"
-            size={18}
+            size={14}
             color={disabled ? colors.textSecondary : colors.primary}
           />
         </Pressable>
@@ -68,59 +70,70 @@ export default BenefitCard;
 
 const styles = StyleSheet.create({
   card: {
-    width: "48%",
+    width: 160,
+    minHeight: 170,
     backgroundColor: colors.card,
-    borderRadius: 16,
-    padding: 16,
+    borderRadius: 18,
+    padding: 14,
     borderWidth: 1,
-    borderColor: colors.border,
-    gap: 12,
+    borderColor: "#E5E7EB",
+    marginRight: 12,
+    justifyContent: "space-between",
   },
+
   iconWrapper: {
-    width: 48,
-    height: 48,
-    borderRadius: 12,
+    width: 34,
+    height: 34,
+    borderRadius: 10,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "rgba(30, 91, 165, 0.15)",
+    backgroundColor: "#F8E9B9",
+    marginBottom: 12,
   },
-  content: {
-    gap: 6,
-  },
+
   title: {
     fontSize: 16,
-    fontWeight: "600",
+    fontWeight: "700",
     color: colors.textPrimary,
-  },
-  description: {
-    fontSize: 14,
     lineHeight: 20,
-    color: colors.textSecondary,
+    marginBottom: 4,
   },
+
+  description: {
+    fontSize: 13,
+    color: colors.textSecondary,
+    lineHeight: 18,
+    marginBottom: 14,
+  },
+
   button: {
-    marginTop: 8,
     alignSelf: "flex-start",
     flexDirection: "row",
     alignItems: "center",
-    gap: 8,
-    paddingVertical: 8,
-    paddingHorizontal: 14,
+    gap: 6,
+    paddingVertical: 7,
+    paddingHorizontal: 12,
     borderRadius: 999,
     borderWidth: 1,
     borderColor: colors.primary,
+    backgroundColor: colors.card,
   },
+
   buttonPressed: {
     opacity: 0.7,
   },
+
   buttonDisabled: {
     borderColor: colors.border,
     backgroundColor: colors.background,
   },
+
   buttonText: {
-    fontSize: 14,
-    fontWeight: "500",
+    fontSize: 13,
+    fontWeight: "600",
     color: colors.primary,
   },
+
   buttonTextDisabled: {
     color: colors.textSecondary,
   },
